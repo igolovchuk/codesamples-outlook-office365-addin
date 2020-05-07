@@ -1,0 +1,12 @@
+﻿<div class="ms-Grid" dir="ltr">
+    <div class="ms-Grid-row">
+        <div class="ms-Grid-col ms-u-sm12 host-container">
+            <label class="ms-fontSize-m nd-color-lightgrey ms-fontWeight-semilight">Host Service</label>
+            <uif-dropdown ng-model="hostCtrl.selectedHostKey" id="host-dropdown">
+                <uif-dropdown-option id="{{host.Id}}" value="{{host.Id}}" ng-repeat="host in hostCtrl.hostList track by host.Id" title="{{host.Name}}">{{host.Name}}</uif-dropdown-option>
+            </uif-dropdown>
+
+            <button class="btn-nd ms-fontSize-m" ng-click="hostCtrl.Login(hostCtrl.selectedHostKey)" id="login-button">Next</button>
+        </div>
+    </div>
+</div>

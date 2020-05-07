@@ -1,0 +1,24 @@
+﻿<uif-dialog ng-if="accessCtrl.isOpen" uif-close="false" uif-type="multiline" uif-overlay="dark">
+    <uif-dialog-header>
+        <div class="dialog-header-container">
+            <p class="ms-Dialog-title dialog-title-container">Access</p>
+            <span class="dialog-close-button-container"><input type="image" alt="Cancel" src="../Content/Images/Notification/notification-close-black.svg" id="close-access-button" ng-click="accessCtrl.isOpen = false" /></span>
+        </div>
+    </uif-dialog-header>
+    <uif-dialog-inner>
+        <uif-dialog-content>
+            <uif-choicefield-group ng-init="accessCtrl.initValues()">
+                <uif-choicefield-option uif-type="checkbox"
+                                        ng-repeat="access in accessCtrl.accessList track by access.Id"
+                                        ng-model="access.Selected"
+                                        ng-true-value="true" ng-false-value="false">
+                    {{access.Name}}
+                </uif-choicefield-option>
+            </uif-choicefield-group>
+            <uif-content><span class="separator-horizontal dialog-separator"></span></uif-content>
+        </uif-dialog-content>
+        <uif-dialog-actions uif-position="right">
+            <button class="btn-nd ms-fontSize-m" id="save-access-button" ng-disabled="!accessCtrl.canSaveAccess()" ng-click="accessCtrl.submitAccess()">Save</button>
+        </uif-dialog-actions>
+    </uif-dialog-inner>
+</uif-dialog>

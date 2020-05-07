@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>product</title>
+
+    <!--styles-->
+    <link rel="stylesheet" href="../Styles/Vendor/FabricUI/fabric.min.css" />
+    <link rel="stylesheet" href="../Styles/Vendor/FabricUI/fabric.components.min.css" />
+
+    <link rel="stylesheet" href="../Styles/Styles.css" />
+
+    <!--vendor-->
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script src="../Scripts/Vendor/AngularJS/angular.min.js"></script>
+    <script src="../Scripts/Vendor/AngularJS/angular-route.min.js"></script>
+    <script src="../Scripts/Vendor/UiFabric/ngOfficeUiFabric.min.js"></script>
+    <script src="../Scripts//Vendor/PouchDB/pouchdb.min.js"></script>
+    <script src="../Scripts/Vendor/CryptoJS/core.min.js"></script>
+    <script src="../Scripts/Vendor/CryptoJS/x64-core.min.js"></script>
+    <script src="../Scripts/Vendor/CryptoJS/sha256.min.js"></script>
+    <script src="../Scripts/Vendor/CryptoJS/sha512.min.js"></script>
+    <script src="../Scripts/Vendor/CryptoJS/enc-base64.min.js"></script>
+
+    <!-- build:application_scripts -->
+
+    <!--application-->
+    <script src="../Scripts/App/app-module.js"></script>
+    <script src="../Scripts/App/Common/Data/enums.js"></script>
+    <script src="../Scripts/App/Common/Data/models.js"></script>
+    <script src="../Scripts/App/Common/Data/custom-exceptions.js"></script>
+    <script src="../Scripts/App/Common/Data/extension-methods.js"></script>
+    <script src="../Scripts/App/Common/Config/app-constants.js"></script>
+    <script src="../Scripts/App/Common/Config/app-values.js"></script>
+    <script src="../Scripts/App/Common/Config/app-interceptors.js"></script>
+    <script src="../Scripts/App/Common/Config/app-config.js"></script>
+    <script src="../Scripts/App/Common/Data/outlook-item.js"></script>
+    <script src="../Scripts/App/Common/Data/cabinet-data.js"></script>
+    <script src="../Scripts/App/Common/Data/location-data.js"></script>
+    <script src="../Scripts/App/Common/Data/quicksearch-data.js"></script>
+    <script src="../Scripts/App/Common/Data/prediction-data.js"></script>
+
+    <!--components-->
+    <script src="../Pages/Components/spinner-component/spinner-component.js"></script>
+    <script src="../Pages/Components/message-component/message-component.js"></script>
+    <script src="../Pages/Components/notification-component/notification-component.js"></script>
+    <script src="../Pages/Components/rename-subject-component/rename-subject-component.js"></script>
+    <script src="../Pages/Components/edit-access-component/edit-access-component.js"></script>
+    <script src="../Pages/Components/about-component/about-component.js"></script>
+
+    <!--helpers-->
+    <script src="../Scripts/App/Common/Helpers/url-helper.js"></script>
+    <script src="../Scripts/App/Common/Helpers/security-helper.js"></script>
+    <script src="../Scripts/App/Common/Helpers/error-helper.js"></script>
+    <script src="../Scripts/App/Common/Helpers/exception-handler.js"></script>
+
+    <!--providers-->
+    <script src="../Scripts/App/Common/Providers/pouchdb-provider.js"></script>
+    <script src="../Scripts/App/Common/Providers/restapi-provider.js"></script>
+
+    <!--services-->
+    <script src="../Scripts/App/Common/Services/office-service.js"></script>
+    <script src="../Scripts/App/Common/Services/storage-service.js"></script>
+    <script src="../Scripts/App/Common/Services/log-service.js"></script>
+    <script src="../Scripts/App/Common/Services/time-service.js"></script>
+    <script src="../Scripts/App/Common/Services/access-service.js"></script>
+    <script src="../Scripts/App/Common/Services/setting-service.js"></script>
+    <script src="../Scripts/App/Common/Services/navigation-service.js"></script>
+    <script src="../Scripts/App/Common/Services/auth-service.js"></script>
+    <script src="../Scripts/App/Common/Services/http-service.js"></script>
+    <script src="../Scripts/App/Common/Services/cabinet-service.js"></script>
+    <script src="../Scripts/App/Common/Services/prediction-service.js"></script>
+    <script src="../Scripts/App/Common/Services/search-service.js"></script>
+    <script src="../Scripts/App/Common/Services/filing-service.js"></script>
+    <script src="../Scripts/App/Common/Services/notification-service.js"></script>
+
+    <!--controllers-->
+    <script src="../Scripts/App/Controllers/page-controller.js"></script>
+    <script src="../Scripts/App/Controllers/host-controller.js"></script>
+    <script src="../Scripts/App/Controllers/item-controller.js"></script>
+
+    <!-- endbuild -->
+</head>
+<body ng-controller="pageController as pageCtrl">
+    <ng-view ng-if="!pageCtrl.showGlobalLoading && !pageCtrl.globalMessage" ng-cloak></ng-view>
+    <div class="global-loading" ng-if="pageCtrl.showGlobalLoading && !pageCtrl.globalMessage"><spinner-component></spinner-component></div>
+    <message-component ng-if="pageCtrl.globalMessage && !pageCtrl.showGlobalLoading" message-type="pageCtrl.globalMessageType" message-text="pageCtrl.globalMessage"></message-component>
+</body>
+</html>

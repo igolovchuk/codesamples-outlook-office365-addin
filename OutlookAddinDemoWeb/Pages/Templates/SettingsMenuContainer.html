@@ -1,0 +1,19 @@
+﻿<uif-contextual-menu uif-is-open="itemCtrl.isSettingsMenuOpen" class="settings-menu">
+    <uif-contextual-menu-item ng-disabled="!itemCtrl.isApplicationDataLoaded" ng-click="itemCtrl.isRenameSubjectDialogOpen = true && itemCtrl.isApplicationDataLoaded" id="rename-subject-button">
+        <uif-content>Rename Subject</uif-content>
+    </uif-contextual-menu-item>
+    <uif-contextual-menu-item ng-disabled="!itemCtrl.isApplicationDataLoaded" ng-click="itemCtrl.isAccessDialogOpen = true && itemCtrl.isApplicationDataLoaded" id="access-menu-button">
+        <uif-content class="access-menu-item-content">
+            Access
+        </uif-content>
+    </uif-contextual-menu-item>
+    <uif-contextual-menu-item ng-disabled="!itemCtrl.isApplicationDataLoaded" ng-click="itemCtrl.isAboutDialogOpen = true && itemCtrl.isApplicationDataLoaded" id="about-button">
+        <uif-content>
+            About
+        </uif-content>
+    </uif-contextual-menu-item>
+    <uif-contextual-menu-item uif-type="divider"></uif-contextual-menu-item>
+    <uif-contextual-menu-item ng-click="itemCtrl.logOut()" class="logout-menu-item" id="logout-button">
+        <uif-content class="logout-menu-item-text">Logout</uif-content>
+    </uif-contextual-menu-item>
+</uif-contextual-menu>

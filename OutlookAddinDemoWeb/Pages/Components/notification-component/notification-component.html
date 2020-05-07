@@ -1,0 +1,17 @@
+﻿<div ng-if="$ctrl.isOpen" class="notification-container" ng-class="$ctrl.type">
+    <div class="notification-icon-container">
+        <img ng-if="$ctrl.icon" class="notification-type-image" ng-src="../Content/Images/Notification/{{$ctrl.icon}}" alt="Notification Type" />
+    </div>
+    <div class="notification-text-container">
+        <span id="notification-text" class="notification-text">{{$ctrl.text}}</span>
+        <span id="notification-sub-text" ng-if="$ctrl.subText" ng-init="$ctrl.initSubText($ctrl.subText)" class="notification-sub-text">
+            <span ng-if="$ctrl.subTextPartOne">{{$ctrl.subTextPartOne}}</span>
+            <span ng-if="$ctrl.actionText"  ng-click="$ctrl.action()" class="notification-action">{{$ctrl.actionText}}</span>
+            <span ng-if="$ctrl.subTextPartTwo">{{$ctrl.subTextPartTwo}}</span>
+        </span>
+    </div>
+    <div class="notification-close-button-container">
+        <img id="notification-close-button" class="notification-close-button" alt="Close"
+             ng-src="../Content/Images/Notification/{{$ctrl.closeIcon}}.svg" ng-click="$ctrl.isOpen = false" />
+    </div>
+</div>

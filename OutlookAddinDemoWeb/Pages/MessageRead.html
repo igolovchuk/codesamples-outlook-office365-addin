@@ -1,0 +1,90 @@
+﻿<!--header-container-->
+<div class="ms-Grid header-container" dir="ltr">
+    <div class="ms-Grid-row">
+        <!--subject control-->
+        <div class="ms-Grid-col ms-u-sm10 subject-container">
+            <label id="custom-subject" class="ms-Label"><span class="ms-font-s-plus nd-color-lightgrey">Subject: </span>{{itemCtrl.customSubject.currentValue}}</label>
+        </div>
+
+        <!--settings-button-->
+        <div class="ms-Grid-col ms-u-sm2 btn-icon btn-icon-settings" ng-click="itemCtrl.isSettingsMenuOpen = !itemCtrl.isSettingsMenuOpen" id="settings-button">
+            <input type="image" alt="Settings" src="../Content/Images/Controls/icon-setting-menu.svg"/>
+        </div>
+    </div>
+    <div class="ms-Grid-row">
+        <div class="ms-Grid-col ms-u-sm12">
+            <!--settings-menu-container-->
+            <ng-include src="'Templates/SettingsMenuContainer.html'"></ng-include>
+
+            <!--about-container-->
+            <about-component is-open="itemCtrl.isAboutDialogOpen"></about-component>
+
+            <!--edit-access-container-->
+            <edit-access-component is-open="itemCtrl.isAccessDialogOpen" value="itemCtrl.fileAccessList" on-save="itemCtrl.submitAccess(accessList)"></edit-access-component>
+
+            <!--rename-subject-container-->
+            <rename-subject-component is-open="itemCtrl.isRenameSubjectDialogOpen" value="itemCtrl.validatedSubjectValue" validation-pattern="itemCtrl.customSubject.validationPattern" on-save="itemCtrl.submitRename(subject)" ></rename-subject-component>
+        </div>
+    </div>
+    <div class="ms-Grid-row">
+        <!--cabinet-control-->
+        <div class="ms-Grid-col ms-u-sm8-5 cabinet-container">
+            <label class="ms-Label nd-color-lightgrey cabinet-label">Cabinet Selection</label>
+            <uif-dropdown id="cabinet-dropdown" ng-model="itemCtrl.cabinetData.currentCabinetId" ng-disabled="!itemCtrl.isCabinetDropdownEnabled" ng-change="itemCtrl.cabinetChanged(itemCtrl.cabinetData.currentCabinetId)">
+                <uif-dropdown-option id="{{cabinet.id}}" value="{{cabinet.id}}" ng-repeat="cabinet in itemCtrl.cabinetData.items track by cabinet.id" title="{{cabinet.name}}">{{cabinet.name}}</uif-dropdown-option>
+            </uif-dropdown>
+        </div>
+
+        <!--refresh-button-->
+        <div class="ms-Grid-col ms-u-sm1-95 btn-icon" ng-click="itemCtrl.loadDataAsync()">
+            <input type="image" alt="Refresh" src="../Content/Images/Controls/icon-refresh.svg" ng-disabled="!itemCtrl.isRefreshEnabled" id="refresh-button"/>
+        </div>
+
+        <!--separator-->
+        <div class="ms-Grid-col ms-u-sm0-1 btn-icon btn-icon-separator">
+            <span class="separator-vertical"></span>
+        </div>
+
+        <!--search-button-->
+        <div class="ms-Grid-col ms-u-sm1-95 btn-icon" ng-click="itemCtrl.isSearchOpen = !itemCtrl.isSearchOpen;" id="open-search-button">
+            <input type="image" alt="Search" src="../Content/Images/Controls/icon-search.svg" ng-disabled="!itemCtrl.isSearchEnabled" />
+        </div>
+    </div>
+</div>
+<!--panel-container-->
+<div class="ms-Grid panel-container zero-horizontal-padding" dir="ltr">
+
+    <!--search-row-->
+    <div class="ms-Grid-row search-container overlay" ng-show="itemCtrl.isSearchOpen">
+        <div class="ms-Grid-col ms-u-sm12">
+            <!--search-container-->
+            <ng-include src="'Templates/SearchContainer.html'"></ng-include>
+        </div>
+    </div>
+
+    <!--table-message-spinner-container-->
+    <div class="ms-Grid-row scrollable">
+        <div class="ms-Grid-col ms-u-sm12 full-height zero-horizontal-padding">
+            <!--table-container-->
+            <ng-include ng-if="itemCtrl.predictionData" src="'Templates/PredictionPanelContainer.html'"></ng-include>
+
+            <!--message-container-->
+            <message-component ng-if="itemCtrl.message && !itemCtrl.predictionData" message-type="itemCtrl.messageType" message-text="itemCtrl.message"></message-component>
+
+            <!--spinner-container-->
+            <spinner-component ng-if="!itemCtrl.predictionData && !itemCtrl.message" loading-text="Generating predictions..."></spinner-component>
+        </div>
+    </div>
+</div>
+
+<!--notification-container-->
+<notification-component is-open="itemCtrl.showNotification" type="itemCtrl.notificationType" text="itemCtrl.notificationText" sub-text="itemCtrl.notificationSubText" icon="itemCtrl.notificationIcon" close-icon="itemCtrl.notificationCloseIcon" action="itemCtrl.notificationAction"></notification-component>
+
+<!--footer-container-->
+<div class="ms-Grid footer-container zero-horizontal-padding" dir="ltr">
+    <div class="ms-Grid-row full-height">
+        <div class="ms-Grid-col ms-u-sm12 footer-container-cell zero-horizontal-padding full-height">
+            <button class="btn-nd ms-fontSize-m" ng-click="itemCtrl.fileData()" id="file-button" ng-disabled="!itemCtrl.isFileButtonEnabled">File</button>
+        </div>
+    </div>
+</div>

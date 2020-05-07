@@ -1,0 +1,12 @@
+﻿<uif-table uif-row-select-mode="multiple" id="prediction-panel">
+    <uif-table-body>
+        <uif-table-row ng-repeat="filingLocation in itemCtrl.predictionData.filingLocations | orderBy: ['isManuallyAdded', '-addedTime']"
+                       ng-init="itemCtrl.predictionData.setLocationDefaultValues(filingLocation)"
+                       ng-click="itemCtrl.checkedChanged(filingLocation)"
+                       ng-class="{'is-selected': filingLocation.isSelected}">
+            <uif-table-row-select></uif-table-row-select>
+            <uif-table-cell class="location-type-cell"><img class="location-type-image" ng-src="../Content/Images/LocationTypes/{{filingLocation.location.type.toLowerCase()}}.svg" alt="Location Type" /></uif-table-cell>
+            <uif-table-cell class="location-name-cell wrap-word"><span class="location-text"><strong>{{filingLocation.location.name}}</strong>{{itemCtrl.predictionData.getLocationParentName(filingLocation)}}</span></uif-table-cell>
+        </uif-table-row>
+    </uif-table-body>
+</uif-table>

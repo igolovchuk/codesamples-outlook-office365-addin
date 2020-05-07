@@ -1,0 +1,18 @@
+﻿<uif-dialog ng-if="$ctrl.isOpen" uif-close="false" uif-type="multiline" uif-overlay="dark">
+    <uif-dialog-header>
+        <div class="dialog-header-container">
+            <p class="ms-Dialog-title dialog-title-container">Rename Subject</p>
+            <span class="dialog-close-button-container"><input type="image" alt="Cancel" src="../Content/Images/Notification/notification-close-black.svg" id="close-rename-subject-button" ng-click="$ctrl.onClose(false)" /></span>
+        </div>
+    </uif-dialog-header>
+    <uif-dialog-inner>
+        <uif-dialog-content>
+            <label class="ms-Label"><span class="ms-font-s-plus nd-color-lightgrey">Subject Name </span></label>
+            <input type="text" id="rename-subject-field" class="ms-TextField-field subject-rename-field" ng-model="$ctrl.value" ng-init="$ctrl.initialValue = $ctrl.value" ng-change="$ctrl.onTextChange()" maxlength="1000" />
+            <uif-content><span class="separator-horizontal dialog-separator"></span></uif-content>
+        </uif-dialog-content>
+        <uif-dialog-actions uif-position="right">
+            <button class="btn-nd ms-fontSize-m" id="save-rename-subject-button" ng-disabled="!$ctrl.value || $ctrl.initialValue === $ctrl.value" ng-click="$ctrl.onClose(true)">Save</button>
+        </uif-dialog-actions>
+    </uif-dialog-inner>
+</uif-dialog>

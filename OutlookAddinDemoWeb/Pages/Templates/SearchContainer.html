@@ -1,0 +1,20 @@
+﻿<div class="ms-SearchBox" ng-class="{'is-active': itemCtrl.isSearchActive}">
+    <!--search-box-->
+    <form id="search-form" action="" onsubmit="return false" ng-submit="itemCtrl.search(itemCtrl.searchQueryText)">
+        <input type="search" class="ms-SearchBox-field" ng-focus="itemCtrl.isSearchActive = true" ng-blur="itemCtrl.isSearchActive = false" ng-model="itemCtrl.searchQueryText" id="search-textfield" maxlength="200" autocomplete="off">
+        <label class="ms-SearchBox-label" for="search-textfield" ng-hide="itemCtrl.searchQueryText || itemCtrl.isSearchActive"><em class="ms-SearchBox-icon ms-Icon ms-Icon--search"></em> Search</label>
+        <button class="ms-SearchBox-closeButton" ng-mousedown="itemCtrl.searchQueryText = undefined;" type="button"><img class="ms-SearchBox-icon" src="../Content/Images/Notification/notification-close-black.svg" alt="Search"/></button>
+    </form>
+    <!--search-results list-->
+    <ul class="ms-Dropdown-items search-result-items" ng-show="itemCtrl.isSearchActive && (itemCtrl.isSearchInProgress || itemCtrl.quickSearchData || itemCtrl.searchMessage)">
+        <li class="ms-Dropdown-item search-result-item search-loading-item" ng-if="!itemCtrl.quickSearchData && !itemCtrl.searchMessage"><img src="../Content/Images/Controls/icon-spinner.gif" alt="Loading" /><span class="search-result-text">Loading...</span></li>
+        <li class="ms-Dropdown-item search-result-item" ng-if="itemCtrl.searchMessage && !itemCtrl.quickSearchData"><span class="search-message-text" ng-class="itemCtrl.searchMessageType">{{itemCtrl.searchMessage}}</span></li>
+        <li class="ms-Dropdown-item search-result-item"
+            ng-if="itemCtrl.quickSearchData"
+            ng-repeat="searchLocation in itemCtrl.quickSearchData.filingLocations | orderBy: ['-documentExists', '-relevance']"
+            ng-mousedown="itemCtrl.addSearchLocation(searchLocation)">
+            <img ng-src="../Content/Images/LocationTypes/{{searchLocation.location.type.toLowerCase()}}.svg" alt="Location Type" />
+            <span class="search-result-text">{{itemCtrl.quickSearchData.getLocationDisplayName(searchLocation)}}</span>
+        </li>
+    </ul>
+</div>

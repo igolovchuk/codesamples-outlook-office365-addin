@@ -1,0 +1,562 @@
+﻿/*Custom application styles*/
+
+/* Global */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+/* Remove default appearence from input text */
+input[type=search], input[type=text] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+}
+
+/* clears the 'X' from Internet Explorer */
+input[type=search]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.nd-color-lightgrey {
+    color: #7f7f7f;
+    opacity: 0.9;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.overlay {
+    position: absolute;
+    z-index: 299;
+}
+
+.global-loading {
+    display: flex;
+    margin-right: 5%;
+    height: 90%;
+    align-items: center;
+    justify-content: center;
+}
+
+.separator-horizontal {
+    height: 1px;
+    /*color: lightgray;
+    background-color: lightgray;
+    border: none;*/
+    border: 0;
+    border-top: 1px solid lightgray;
+    display: block;
+    /*margin-bottom: 3%;
+    margin-top: 3%;*/
+}
+
+.separator-vertical {
+    /*width: 1px;
+    height: 20px;
+    color: lightgray;
+    background-color: lightgray;
+    border: none;*/
+    border-left: 1px solid lightgray;
+    height: 22px;
+}
+
+.message-container {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 75%;
+}
+
+.message-container-body {
+    margin-top: 12px;
+    padding-left: 19%;
+    padding-right: 19%;
+}
+
+.message-error {
+    color: #D30000;
+}
+
+.message-info {
+    color: black;
+}
+
+.message-success {
+    color: black;
+}
+
+.center-horizontal {
+    text-align: center;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.scrollable {
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.footer-container {
+    /*position: fixed;
+    width: 100%;
+    margin-left: -8px;
+    bottom: 0;
+    background-color: white;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 1%;*/
+
+    /*height: 8%;*/
+    height: 80px;
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container-cell {
+    border-top: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75%;
+}
+
+.wrap-word {
+    white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+    white-space: -webkit-pre-wrap; /*Chrome & Safari */ 
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    white-space: pre-wrap;       /* css-3 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    word-break: break-word;
+    white-space: normal;
+}
+
+.btn-icon {
+    margin-top: 28px;
+
+    /*height: 32px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.btn-icon-separator {
+    margin-top: 35px;
+    text-align: center;
+}
+
+.btn-icon-settings {
+    /*padding-top: 20px;*/
+    margin-top: 0;
+    padding-left: 8px;
+}
+
+.btn-nd {
+    border-radius: 1px;
+    box-sizing: border-box;
+    box-shadow: none;
+    background-color: #225582;
+    border: 1px solid #225582;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    height: 38px;
+    min-width: 110px;
+}
+
+.btn-nd:hover {
+    background-color: #39668e;
+    border-color: #39668e;
+}
+
+.btn-nd:active {
+    background-color: #1e4c74;
+    border-color: #1e4c74;
+}
+
+.btn-nd.is-disabled, .btn-nd:disabled {
+    background-color: #6488a7;
+    border-color: #6488a7;
+    color: #225582;
+ }
+
+.zero-horizontal-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* End Global */
+
+/* Host Selector */
+.title-container {
+    text-align: center;
+    margin-top: 15%;
+    margin-bottom: 15%;
+}
+
+.title-image {
+    vertical-align: middle;
+}
+
+.host-container {
+    width: 84%;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 40%;
+}
+
+#login-button {
+    width: 80%;
+    margin: 15% 10% auto 10%;
+}
+/* End Host Selector */
+
+/* Message Read */
+
+.ms-Table td.location-name-cell {
+    padding-left: 0;
+    padding-right: 16px;
+}
+
+.ms-Table td.location-name-cell > span.location-text {
+    position: relative;
+    top: 2px;
+}
+
+.ms-Table td > img.location-type-image {
+    vertical-align: middle;
+}
+
+.ms-Table td.location-type-cell {
+    width: 24px;
+}
+
+#file-button {
+    width: 64%;
+    margin-left: 18%;
+    margin-right: 18%;
+    position: relative;
+    display: block;
+}
+
+.panel-container {
+    height: calc(100% - 210px);
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.panel-with-search {
+    height: 90%;
+}
+
+.panel-without-search {
+    height: 100%;
+}
+
+/*@media screen and (max-height: 720px) {
+    .panel-container {
+        padding-bottom: 12%;
+       }
+}
+
+@media screen and (max-height: 600px) {
+    .panel-container {
+        padding-bottom: 18%;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    .panel-container {
+        padding-bottom: 20%;
+    }
+}*/
+
+.subject-container label {
+    font-size: 15px;
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+}
+
+.cabinet-label {
+    padding-bottom: 0;
+    font-size: 13px;
+}
+
+.settings-menu {
+    right: 0;
+}
+
+.access-icon-menu-item {
+    vertical-align: middle;
+    margin-right: 5pt;
+}
+
+.logout-menu-item-text {
+    color: #225582;
+    opacity: 0.87;
+}
+
+li.logout-menu-item > a.ms-ContextualMenu-link {
+    line-height: 36px;
+}
+
+.access-menu-item-content {
+   vertical-align: middle;
+}
+
+.cabinet-container {
+    padding-right: 4px;
+}
+
+.subject-container {
+    padding-right: 0;
+}
+
+.header-container {
+    height: 130px;
+    padding-top: 5px;
+}
+
+/* Region Notification */
+
+.notification-container {
+    bottom: 80px;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    z-index: 205;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.notification-icon-container {
+    width: 15%;
+    text-align: center;
+}
+
+.notification-text-container {
+    width: 70%;
+}
+
+.notification-close-button-container {
+    width: 15%;
+}
+
+.notification-text {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    /*margin-left: 3%;*/
+    vertical-align: middle;
+}
+
+.notification-sub-text {
+    color: white;
+    font-size: 11px;
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    padding-bottom: 6px;
+    padding-top: 6px;
+}
+
+.notification-action {
+    color: #0066CC;
+    cursor: pointer;
+}
+
+.notification-close-button {
+    cursor: pointer;
+    vertical-align: middle;
+    float: right;
+    margin-right: 15%
+}
+
+.notification-type-image {
+    vertical-align: middle;
+    margin-left: 4%
+}
+
+.notification-success {
+    background-color: #58B147;
+}
+
+.notification-error {
+    background-color: #EF403D;
+}
+
+.notification-info {
+    background-color: #EDEDED;
+}
+
+.notification-warning {
+    background-color: #EDEDED;
+}
+
+.notification-info .notification-text {
+    color: black;
+}
+
+.notification-warning .notification-text {
+    color: black;
+}
+
+.notification-info .notification-sub-text {
+    color: black;
+}
+
+.notification-warning .notification-sub-text {
+    color: black;
+}
+
+/* End Region Notification */
+
+/* Region Dialog*/
+
+.dialog-separator {
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-top: 50px;
+}
+
+.dialog-close-button-container {
+    width: 10%;
+    text-align: right
+}
+
+.dialog-title-container {
+    width: 90%
+}
+.dialog-header-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* End Region Dialog */
+
+/* Region Search*/
+
+.search-container {
+    background-color: #F2F2F2;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-search-close {
+    vertical-align: middle;
+}
+
+.search-result-items {
+    display: block;
+}
+
+.search-result-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.search-loading-item:hover {
+    background-color:transparent;
+}
+
+.search-result-item:first-child {
+    padding-top: 12px;
+}
+
+.search-result-item:last-child {
+    padding-bottom: 12px;
+}
+
+.search-result-text {
+    margin-left: 10px;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.search-message-text {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* End Region Search*/
+
+/* Region Subject Rename */
+
+.subject-rename-field {
+    font-size: 15px;
+}
+
+/* End Region Subject Rename */
+
+/* End Message Read */
+
+/* About Component Dialog */
+.about-dialog .about-content label {
+    font-size: 15px;
+}
+/* End About Component Dialog */

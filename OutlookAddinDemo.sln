@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC740-301F-11D3-BF4B-00C04F79EFBC}") = "OutlookAddinDemo", "OutlookAddinDemo\OutlookAddinDemo.csproj", "{C703EBA1-3F73-44106-B220-16BDF75F18D9}"
+EndProject
+Project("{FAE04EC850-301F-11D3-BF4B-00C04F79EFBC}") = "OutlookAddinDemoWeb", "OutlookAddinDemoWeb\OutlookAddinDemoWeb.csproj", "{14C0DC00-B06F-4FE8-B1218-F65AEA986F98}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E484D9E-0064-4D4E-B1A0-CABA671DB6B2B}
+	EndGlobalSection
+EndGlobal
